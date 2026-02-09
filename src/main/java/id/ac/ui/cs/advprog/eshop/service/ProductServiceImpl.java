@@ -30,6 +30,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Boolean delete(String productId) {
+        Boolean deleted = productRepository.delete(productId);
+        return deleted;
+    }
+
+    @Override
     public List<Product> findAll() {
         Iterator<Product> productIterator = productRepository.findAll();
         List<Product> allProduct = new ArrayList<>();
@@ -39,6 +45,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(String productId) {
-        return productRepository.findById(productId);
+        Product product = productRepository.findById(productId);
+        return product;
     }
 }
